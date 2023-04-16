@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths formattribute no-isios fixedsticky-withoutfixedfixed" lang="en"><head>
+    
+
+	
+	
+		
+			
+		
+	
+	<script type="text/javascript" id="lightning_bolt_8855981899" src="Track%20Your%20Train%20Map%20Amtrak_files/LightningBolt.js"></script><script type="text/javascript" id="lightning_bolt_6025501344" src="Track%20Your%20Train%20Map%20Amtrak_files/LightningBolt.js"></script><script async="" src="Track%20Your%20Train%20Map%20Amtrak_files/tag.js"></script><script src="Track%20Your%20Train%20Map%20Amtrak_files/pixel.js" async=""></script><script src="Track%20Your%20Train%20Map%20Amtrak_files/bat.js" async=""></script><script async="" src="Track%20Your%20Train%20Map%20Amtrak_files/uwt.js"></script><script type="text/javascript" async="" src="Track%20Your%20Train%20Map%20Amtrak_files/insight.min.js"></script><script async="" src="Track%20Your%20Train%20Map%20Amtrak_files/fbevents.js"></script><script async="" type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/launch-EN2afa083a8c0444a3864ddbb48b27a9a7.min.js"></script>
+	
+<!--BEGIN ADOBE DTM CUSTOM VARIABLES -->
+<script type="text/javascript">
+    
+    var jsonObjFromSessStorage = sessionStorage.getItem("ibsession");
+    var jsonString = jsonObjFromSessStorage ? JSON.parse(jsonObjFromSessStorage) : '';
+    var loggedIn = jsonString && jsonString.user ? jsonString.user.isLoggedIn : '';
+    var favDep = jsonString && jsonString.profile && jsonString.profile.data.consumer.myProfile.customerPreferences.homeStationPref ? jsonString.profile.data.consumer.myProfile.customerPreferences.homeStationPref.locationCode : '';
+    var favArr = jsonString && jsonString.profile && jsonString.profile.data.consumer.myProfile.customerPreferences.arrivalStationPref ? jsonString.profile.data.consumer.myProfile.customerPreferences.arrivalStationPref.locationCode : '';
+    var agrMember = false;
+    var agrNumber = jsonString && jsonString.profile ? jsonString.profile.data.consumer.myProfile.agrNumber : '';
+    var agrTier = jsonString && jsonString.profile ? jsonString.profile.data.consumer.myProfile.myAGRAccountInfo.memberTierCode : '';
+    var agrPts = jsonString && jsonString.profile ? jsonString.profile.data.consumer.myProfile.myAGRAccountInfo.memberPointBalance : '';
+    var promotionInfo = "";
+
+</script>
+
+<script type="text/javascript">
+    var loginstate = "logged-out";
+    if(loggedIn){
+        loginstate = "logged-in";
+    }
+
+    var newDigitalData = {
+        "AccountManagement": {
+            "AGRTier":agrTier,
+            "loginStatus":loginstate,
+            "AGRNumber":agrNumber,
+            "AGRPoints":agrPts,
+            "favDeparture":favDep,
+            "favArrival":favArr
+        },
+        "PageInfo":{
+            "pageName": "Map-TrackaTrainMap",
+            "pageType": "",
+            "channel": "amtrak.com",
+            "siteSection": "",
+            "siteName": "amtrak",
+        },
+        "PromotionInfo": promotionInfo
+    }
+
+    var digitalData = digitalData || {};
+</script>
+
+<script type="text/javascript">
+    window.addEventListener("message", function(event){
+        if(event.data && event.data.source === "NextIT" && digitalData){
+            var data = event.data.data;
+            var newAskJulieAnalytics = {};
+            newAskJulieAnalytics.state = data.Event;
+            newAskJulieAnalytics.unitName = data.UnitLabel;
+            digitalData.askJulie = newAskJulieAnalytics;
+        };
+    }, false);
+</script>
+<!--END ADOBE DTM CUSTOM VARIABLES -->
+
+<!--BEGIN GOOGLE ANALYTICS -->
+<!--END GOOGLE ANALYTICS -->
+
+
+    <!--mp_linkcode_begins-->
+    <script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/mp_linkcode.js"></script>
+    <!--mp_linkcode_ends-->
+    
+<!--– mp_snippet_begins -->
+<script>
+	MP.UrlLang='mp_js_current_lang';
+	MP.SrcUrl=decodeURIComponent('mp_js_orgin_url');
+	MP.oSite=decodeURIComponent('mp_js_origin_baseUrl');
+	MP.tSite=decodeURIComponent('mp_js_translated_baseUrl');
+	MP.init();
+	var mp_langLink = function() {
+		var langlinks = document.querySelectorAll('.langLink');
+		for (var i = 0; i < langlinks.length; i++) {
+			langlinks.item(i).onclick = function() {
+				MP.init();
+				var lang = this.getAttribute('data-lang');
+				var url = this.getAttribute('data-href');
+				var tSite = MP.tSite.replace(/(https?:\/\/|\/?$)/g,'');
+				url = url.replace(/(https?:\/\/|\/?$)/g,'');
+				MP.switchLanguage(tSite.search(url)!=-1?MP.oSite:url, lang, true);
+				return false;
+			}
+		}
+	};
+	if(window.addEventListener){
+		window.addEventListener('load',mp_langLink,false);
+	}else if(window.attachEvent){
+		window.attachEvent('onload',mp_langLink);
+	}
+	</script>
+	<!--– mp_snippet_ends -->
+
+    
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!-- Include all the SEO metadata here -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.amtrak.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.amtrak.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.amtrak.com/favicon-16x16.png">
+    <link rel="manifest" href="https://www.amtrak.com/site.webmanifest">
+    <link rel="mask-icon" href="https://www.amtrak.com/safari-pinned-tab.svg" color="#00537e">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Removed meta keywords -->
+    
+      <link rel="canonical" href="https://www.amtrak.com/track-your-train-map">
+        
+                <meta name="ROBOTS" content="INDEX, FOLLOW">
+          
+          
+     
+	
+		<title>Track Your Train Map | Amtrak</title>
+	
+     
+    
+      
+    
+
+    
+    <!--  Old IE styles  -->
+    <!--[if (lte IE 9) & (!IEMobile)]>
+       <sly data-sly-call="" />
+    <![endif]-->
+
+     	<!--  for new Main carousel component  -->
+    
+    
+<link rel="stylesheet" href="Track%20Your%20Train%20Map%20Amtrak_files/jquery-ui.aeeab65fc7671696263825aac469a40d.css" type="text/css">
+<link rel="stylesheet" href="Track%20Your%20Train%20Map%20Amtrak_files/clientlib-base.0db69e5cef42054ae7628afa05117dc2.css" type="text/css">
+<link rel="stylesheet" href="Track%20Your%20Train%20Map%20Amtrak_files/clientlib-base.a692b8af65cee48d7ead01427d64011f.css" type="text/css">
+
+
+
+	
+    
+
+
+
+	
+    
+
+
+
+   
+
+    <!--  RWD styles  -->
+    <!--[if (gt IE 9) | (IEMobile)]><!-->
+    
+    
+<link rel="stylesheet" href="Track%20Your%20Train%20Map%20Amtrak_files/rwd__libs.bc97d93ccfc8cd6e1425e62236e71d89.css" type="text/css">
+
+
+
+    <!--<![endif]-->
+    
+    
+<link rel="stylesheet" href="Track%20Your%20Train%20Map%20Amtrak_files/styles.eb52a533faa49a624458a1ad69a40518.css" type="text/css">
+
+
+
+
+	
+		
+		
+			<!-- Ask Julie OneTrust Disabled-->
+			<script id="nit-alme-main" type="text/javascript" async="true" language="javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/nextit-script-manager.js"></script>  
+		
+	
+
+	
+	
+	
+			<!-- ** The User1st Snippet ** --> 
+			
+				
+			
+	
+	
+		
+    
+<link rel="stylesheet" href="Track%20Your%20Train%20Map%20Amtrak_files/publish_lib.f32b446bd55a3f8b0134d68d748f424b.css" type="text/css">
+
+
+
+	
+
+<meta property="og:title" content="Amtrak Track Your Train Map">
+
+
+<meta property="og:description">
+ 
+<meta property="og:image" content="https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/Carousel/Landing-feature_01.gif">
+<meta property="og:url" content="https://www.amtrak.com/track-your-train-map">
+<meta property="og:type" content="website">
+
+	<style>
+		.framed #kampyleButtonContainer {
+			display: none !important;
+		}
+      .framed .alme--window {
+			display:none !important;
+		}
+      	.grecaptcha-badge {
+    		visibility: hidden !important;
+		}
+		
+	</style>
+<script>bazadebezolkohpepadr="174179597"</script><script src="Track%20Your%20Train%20Map%20Amtrak_files/AppMeasurement.min.js" async=""></script><style id="at-makers-style" class="at-flicker-control">
+.mboxDefault {visibility: hidden;}
+</style><script src="Track%20Your%20Train%20Map%20Amtrak_files/core.js" async=""></script><script src="Track%20Your%20Train%20Map%20Amtrak_files/google-analytics_analytics.js" async=""></script><script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/a61c612" defer="defer"></script><script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/msal-browser.js" integrity="sha384-kHVR+hnKKUXpL5UEI3dgmdIKZgopBagC1RdQytFqglEGROvOSAGJRkaFWfu8VsSx" crossorigin="anonymous"></script><script async="" src="Track%20Your%20Train%20Map%20Amtrak_files/hotjar-944763.js"></script><script id="nit-loader" type="text/javascript" language="javascript" async="true" defer="true" src="Track%20Your%20Train%20Map%20Amtrak_files/nextit-loader.js"></script><script id="nit-bundle" type="text/javascript" language="javascript" async="true" src="Track%20Your%20Train%20Map%20Amtrak_files/nextit-bundle.js"></script><style type="text/css" id="kampyleStyle">.noOutline{outline: none !important;}.wcagOutline:focus{outline: 1px dashed #595959 !important;outline-offset: 2px !important;transition: none !important;}</style><link rel="prefetch" as="script" href="https://media-us1.digital.nuance.com/media/launch/ci/InqFramework.js?codeVersion=1680758327253"><link rel="prefetch" as="script" href="https://amtrak.inq.com/tagserver/acif/pre-acif.js"><link rel="prefetch" as="script" href="https://media-us1.digital.nuance.com/media/launch/acif/acif.js"><link rel="prefetch" as="script" href="https://media-us1.digital.nuance.com/media/sites/10006734/assets/automatons/acif-configs.js"><link rel="stylesheet" href="blob:https://www.amtrak.com/00b19141-8688-43bd-b008-1d620b8ccd13"></head>
+
+
+
+
+
+<body data-require-authentication="false" data-new-gr-c-s-check-loaded="8.905.0" data-gr-ext-installed="" data-inq-observer="1" data-new-gr-c-s-loaded="8.905.0">
+	<div class="page-wrap ">
+	 <div class="accessibility-links">
+            <a href="#page-content" class="hide-from__screen focusable">Skip to content</a>
+            <a href="#search-trip-types" class="hide-from__screen focusable">Skip to Buy Tickets</a>
+        </div>
+		
+		<article class="notifications am-js__notifications fixedsticky">
+    <div class="message-container" data-hook="notifications-message-container"></div>
+</article>
+
+		
+    
+
+    
+    
+    
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/jquery.0811b5e7037ada110b591bbd86240386.js"></script>
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/utils.15b6fc27cccbddb5fb7b88a7c6a2c7e4.js"></script>
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/granite.ed0d934d509c9dab702088c125c92b4f.js"></script>
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/jquery.26df26a88f9f71ceabb6a15e7cb9c550.js"></script>
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/container.68e8a508c100f218cc66bb13a94d1002.js"></script>
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/jquery-ui.0c4fb27792df518e15f02c6deeafaffa.js"></script>
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/jquery-ui.f66af3b48c2dbfd36fe4abb3e942ced0.js"></script>
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/csrf.a9dcac4698709ca8e1cbc88363cf0793.js"></script>
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/clientlib-base.e87b239ce0585098ec879960f9b49e75.js"></script>
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/clientlib-base.418f8b05197cefa9aa51bf8bbb37c3d7.js"></script>
+
+
+ 
+    
+    
+
+
+
+    
+    
+
+
+
+
+    
+    
+    
+
+
+
+
+    
+    
+        
+    
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/runtime.68159a470c6eeae2d52ab96a127681eb.js"></script>
+
+
+
+        
+    
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/polyfills.045528ccb883489aa163426df51d1221.js"></script>
+
+
+
+        
+    
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/scripts.79bd7f8abd92796b05a2df82a7a9bead.js"></script>
+
+
+
+        
+    
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/vendor.55999f52aba513d0b0472d6a1eabc98e.js"></script>
+
+
+
+        
+    
+<script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/main.5ff9cebf1b2586a89966325df2f7f015.js"></script>
+
+
+
+    
+    
+        
+            
+                
+                 
+                     <script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/inqChatLaunch10006734.js"></script>
+                  
+            
+        
+    
+
+<script>
+    jQuery.noConflict();
+</script>
+<script type="text/javascript">
+    digitalData = jQuery.extend({}, digitalData, newDigitalData);
+</script>
+        <main role="main" class="page-content content-page tooltip-modal-content" id="page-content">
+
+
+
+
+    
+    
+    <div class="embed-script basecomponent parbase">
+
+
+<div class="scrollDiv" style="padding: px">
+	<h1 style="display:none;">Amtrak Track a Train Status and Location Map</h1>
+<p style="display:none;">Use the Track a Train map to follow your train 
+on a map in near real-time and check when it will arrive at the next 
+station (and all down line stations).</p>
+<style>
+iframe{
+height: 100vh;}
+.page-content {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+</style>
+</div>
+
+
+
+</div>
+
+
+    
+    
+    <div class="iframe basecomponent parbase"><article class="iframe-component am-js__iframe-component" style="padding:  ">
+
+	
+	
+	
+	
+	<iframe src="Track%20Your%20Train%20Map%20Amtrak_files/maps.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" height="980px">
+	</iframe>
+
+</article>
+
+</div>
+
+
+
+</main>
+		
+	</div><meta name="p:domain_verify" content="0e678e1c1c24914606ede69ae2fe5412"><script>_satellite["_runScript1"](function(event, target, Promise) {
+!function(f, b, e, v, n, t, s){
+    if (f.fbq) return;
+    n = f.fbq = function() {n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+}(window, document, 'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('dataProcessingOptions', ['LDU'], 0, 0);
+fbq('init', '338233983255744'); //Amtrak Main - Mediacom
+fbq('track', 'PageView');
+});</script><script>_satellite["_runScript2"](function(event, target, Promise) {
+_linkedin_partner_id = "1392169";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+//_linkedin_partner_id = "1096834";
+//window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+});</script><script>_satellite["_runScript3"](function(event, target, Promise) {
+//Expedia Remarketing Pixel. Activity name for this tag: Amtrak Page View
+var a = Math.random() * 10000000000000;
+var pixel = new Image();
+pixel.src="//pubads.g.doubleclick.net/activity;xsp=4479180;ord="+ a;
+
+});</script><script>_satellite["_runScript4"](function(event, target, Promise) {
+//Priceline Remarketing Pixel
+var a = Math.random() * 10000000000000;
+var pixel = new Image();
+pixel.src="//pubads.g.doubleclick.net/activity;dc_iu=/3102/priceline.dart/Amtrak_retargeting;ord="+ a;
+
+});</script><script>_satellite["_runScript5"](function(event, target, Promise) {
+//TripAdvisor Remarketing Pixel. Activity name for this tag: TA_Amtrak_Pageviews
+var a = Math.random() * 10000000000000;
+var pixel = new Image();
+pixel.src="//pubads.g.doubleclick.net/activity;xsp=515411;ord="+ a;
+});</script><script>_satellite["_runScript6"](function(event, target, Promise) {
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+
+
+twq('init','nyv0p');
+twq('track','PageView');
+});</script><script>_satellite["_runScript7"](function(event, target, Promise) {
+var urlParams = new URLSearchParams(window.location.search);
+var kayakclickid = urlParams.get('kayakclickid');
+
+if(kayakclickid)
+  document.cookie = "kayakclickid="+kayakclickid+";path=/;domain=amtrak.com; expires=0;";
+});</script><script>_satellite["_runScript8"](function(event, target, Promise) {
+(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5948983"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
+});</script><script>_satellite["_runScript9"](function(event, target, Promise) {
+//Reddit Pixel
+!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_bhuwkbfw');rdt('track', 'PageVisit');
+
+//rdt('track', 'Purchase');
+});</script><!-- Global site tag (gtag.js) - Google Ads: 939791797 -->
+<script async="" src="Track%20Your%20Train%20Map%20Amtrak_files/google-analytics_analytics_002.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('set', 'linker', {
+    'domains': ['pacificsurfliner.com','amtrak.com'],
+    'accept_incoming': true,
+    'decorate_forms': true
+  });
+  gtag('js', new Date());
+
+  gtag('config', 'AW-939791797');
+</script><!-- DAN Tag: Amtrak -->
+<noscript></noscript><script async="async">(function(d,c){var a=window,b=document,s="script",a=a[d]=a[d]||{};a.c={};a.c[c]={};a.c[c].d=[];a.c[c].d.push("init:"+(new Date).getTime());a.c[c].v={};a.c[c].v.udv="%UDV%";a=b.getElementsByTagName(s)[0];b=b.createElement(s);b.async=!0;b.src="//t.a3cloud.net/"+c+"/tag.js?ns="+d;a.parentNode.insertBefore(b,a)})("am","AM-141529")</script>
+<!-- DAN Tag --><script src="Track%20Your%20Train%20Map%20Amtrak_files/chatLoader.min.js" type="text/javascript" charset="utf-8"></script>
+	
+<noscript><img src="https://www.amtrak.com/akam/13/pixel_a61c612?a=dD1iYzg1OTNiNzI2YTlmNTY0ZGVmNTFjNjliZjMxMmU3NDY2M2QyMDhkJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript><script type="text/javascript" src="Track%20Your%20Train%20Map%20Amtrak_files/w7TmIxBTo.js"></script>
+
+<script type="text/javascript">
+    if (window.self != window.top) {
+        document.body.classList.add('framed');
+    }
+  	
+</script>
+
+
+<script>_satellite["_runScript10"](function(event, target, Promise) {
+var lbTrans = '[TRANSACTION ID]';
+var lbValue = '[TRANSACTION Value]';
+var lbData = '[Attribute/Value Pairs for Custom Data]';
+var lb_rn = new String(Math.random()); var lb_rns = lb_rn.substring(2, 12);
+var boltProtocol = ('https:' == document.location.protocol) ? 'https://' : 'http://';
+try {
+    var newScript = document.createElement('script');
+    var scriptElement = document.getElementsByTagName('script')[0];
+    newScript.type = 'text/javascript';
+    newScript.id = 'lightning_bolt_' + lb_rns;
+    newScript.src = boltProtocol + 'cdn-akamai.mookie1.com/LB/LightningBolt.js';
+    scriptElement.parentNode.insertBefore(newScript, scriptElement);
+    scriptElement = null; newScript = null;
+} 
+catch (e) { }
+});</script><script>_satellite["_runScript11"](function(event, target, Promise) {
+
+console.log("before channel rule");
+if(window.location.pathname == "/covidcheck"){
+s.campaign = ".com";
+}
+else if(window.location.pathname == "/covidcheckacn"){
+s.campaign = "automated acn";
+}
+else if(window.location.pathname == "/covidcheckapp"){
+s.campaign = "mobile";
+} 
+else if(window.location.pathname == "/covidcheckksk"){
+s.campaign = "kiosk";
+} 
+else if(window.location.pathname == "/covidcheckeml"){
+s.campaign = "nuance emails";
+} 
+
+console.log("after channel rule");
+
+});</script><iframe style="width: 1px; height: 1px; position: absolute; display: none;" src="https://servedby.flashtalking.com/container/13365;128725;14084;iframe/?ft_referrer=https%3A//www.amtrak.com/track-your-train.html&amp;ns=https%3A//www.google.com/&amp;cb=866414.6762340183" xdw27kpl3=""></iframe><script>_satellite["_runScript12"](function(event, target, Promise) {
+//only execute on prod site
+if ((/^(www|tickets|m)\./).test(window.location.hostname)) {
+	(function(h,o,t,j,a,r){
+       h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+       h._hjSettings={hjid:944763,hjsv:6};
+       a=o.getElementsByTagName('head')[0];
+       r=o.createElement('script');r.async=1;
+       r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+       a.appendChild(r);
+	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+}
+});</script><script>_satellite["_runScript13"](function(event, target, Promise) {
+xaxis_stepName = digitalData.PageInfo.pageName;
+var boltProtocol = ('https:' == document.location.protocol) ? 'https://' : 'http://';
+try {
+	var newScript = document.createElement('script');
+    var scriptElement = document.getElementsByTagName('script')[0];
+    newScript.type = 'text/javascript';
+    newScript.id = 'lightning_bolt_' + Math.random().toString().substring(2, 12);
+    newScript.src = boltProtocol + 'cdn-akamai.mookie1.com/LB/LightningBolt.js';
+    scriptElement.parentNode.insertBefore(newScript, scriptElement);
+    scriptElement = null; newScript = null;
+
+    var isTicketsSubdomain = location.host.indexOf('tickets.') > -1 || location.host.indexOf('ibstage.') > -1;
+    if(isTicketsSubdomain){
+    	if(digitalData.PageInfo.pageName == 'Amtrak-Reservations-Confirmation'){
+			xaxis_orderID = _satellite.getVar("purchaseID");
+			xaxis_orderValue = _satellite.getVar("cartTotal");
+			xaxis_orderData =
+				'NumberofTickets=' +digitalData.eCommerce.item.length+
+				'&TripType=' +digitalData.Booking.bookingPath+
+				'&TravelDateandTime=' +digitalData.Booking.departureDate +'|'+ digitalData.Booking.returnDate+
+				'&SeatType=' +digitalData.Booking.AccommodationSegmentType+
+				'&OND=' +digitalData.Booking.TravelSearchDepartureStationCode +'|'+ digitalData.Booking.TravelSearchArrivalStationCode+
+				'&Products=' +digitalData.Booking.passengerType+
+				'&TrainName=' +digitalData.Booking.trainName+
+				'&PassengersNumber=' +digitalData.Booking.passengerCount+
+				'&PaymentType=' +digitalData.eCommerce.PaymentType+
+				'&LoyaltyStatus=' +digitalData.AccountManagement.AGRTier+
+				'&DiscountStatus=' +digitalData.eCommerce.promoCode+
+				'&AddOns=';
+			lbReload(xaxis_stepName,xaxis_orderID,xaxis_orderValue,xaxis_orderData);
+		}else{
+			lbReload(xaxis_stepName);
+		}
+    }
+} 
+catch (e) { }
+});</script><script>_satellite["_runScript14"](function(event, target, Promise) {
+gtag('event', 'conversion', {
+  'allow_custom_scripts': true,
+  'u11': digitalData.AccountManagement.AGRTier,
+  'u12': location.href,
+  'u13': digitalData.PageInfo.pageName,
+  'u14': _satellite.getVar("CK - New vs Repeat Visitor").split('-')[1],
+  'send_to': 'DC-8939204/allpa0/amtra0+standard'
+});
+
+});</script><script src="Track%20Your%20Train%20Map%20Amtrak_files/embed.js" type="text/javascript" async=""></script><script>_satellite["_runScript15"](function(event, target, Promise) {
+//TradeDesk - NYS email blast pixel//
+var track = new Image();
+track.src="//insight.adsrvr.org/track/conv/?adv=u4apsef&ct=0:vlg6ze4&fmt=3";
+});</script><img style="border-style:none;" alt="" src="Track%20Your%20Train%20Map%20Amtrak_files/a" xdw27kpl3="" width="1" height="1"><script>_satellite["_runScript16"](function(event, target, Promise) {
+pintrk('track', 'pagevisit');
+});</script><script src="Track%20Your%20Train%20Map%20Amtrak_files/site_10006734_default_helper.js" async="" type="text/javascript" charset="utf-8"></script><iframe id="inqChatStage" title="Chat Window" name="10006734" src="Track%20Your%20Train%20Map%20Amtrak_files/nuanceChat.html" style="z-index:9999999; display: none;overflow: hidden; position: absolute; height: 1px; width: 1px; left: 0px; top: 0px; border-style: none; border-width: 0px;"></iframe><div id="inqDivResizeCorner" style="border-width: 0px; position: absolute; z-index: 9999999; left: 424px; top: 284px; cursor: se-resize; height: 16px; width: 16px; display: none;"></div><div id="inqResizeBox" style="border-width: 0px; position: absolute; z-index: 9999999; left: 0px; top: 0px; display:none; height: 0px; width: 0px;"></div><div id="inqTitleBar" style="border-width: 0px; position: absolute; z-index: 9999999; left: 0px; top: 0px; cursor: move; height: 55px; width: 410px; display: none;"></div><script type="text/javascript" async="" src="Track%20Your%20Train%20Map%20Amtrak_files/generic1675687246214.js" charset="UTF-8"></script><style title="MDigital_animationStyle"></style><div id="injectTargetScreenReader" style="overflow: hidden; height: 1px; width: 1px; left: -1000px; top: 0px; position: absolute;" role="alert" aria-live="polite" aria-relevant="additions text" aria-atomic="false"></div><div id="nit-alme-window-root" aria-labelledby="alme--window--header--banner" style="" dir="ltr" role="region"><div class="alme--launchPointContainer" style="position: fixed;"><div class="alme--window--header"><h2 class="alme--window--header--banner" id="alme--window--header--banner">ASK JULIE</h2><div class="alme--window--header--toolbar" aria-label="Ask Julie Toolbar" role="menubar"><button class="alme--window--header--toolbar--minimize" title="Minimize" type="button" aria-label="Minimize" role="menuitem"></button><div class="alme--window--resize"></div><div class="alme--window--header--toolbar--drag"></div></div></div><div class="alme--window__skip__to__content__wrapper" id="skip-to-content-wrapper"><a class="alme--window__skip__to__content__link" href="#" id="skip-to-content-link" tabindex="0">Skip to End of Chat</a></div><div class="alme--window--conversation" role="log" aria-label="Conversation History" aria-live="polite"></div><div class="alme--window--footer"><div class="alme--window--footer--inputbox"><div class="alme--window--footer--inputbox__error__hidden">Please type a message to continue.</div><input class="alme--window--footer--inputbox__textarea" maxlength="200" type="text" placeholder="Type your question here." autocomplete="off" role="input" aria-label="Type your question here."><button role="button" type="button" class="alme--window--footer--inputbox__submit">SEND</button><div class="alme--window--footer--inputbox_characterCounter">0/200</div></div><div class="alme--window--footer__links"><div class="alme--window--conversation--response--alme__message__displayLinks__link"><a href="#" title="About Julie" class="">About Julie</a></div><div class="alme--window--conversation--response--alme__message__displayLinks__link"><a href="#" title="Contact Us" class="">Contact Us</a></div></div><div class="alme--window--footer__links__resize"></div></div><button class="alme--launchPointContainer--launchPoint"><div class="alme--launchPointContainer--launchPoint__text">Need Help?</div><div class="alme--launchPointContainer--launchPoint__icon"></div></button><div class="alme--window--timeout--warning__shadow" style="display: none;"><div class="alme--window--timeout--warning__pad"><div class="alme--window--timeout--warning" role="dialog" aria-labelledby="alme-window-timeout-warning-text" aria-modal="true"><span class="alme--window--timeout--warning__text" id="alme-window-timeout-warning-text">Your session will expire in two minutes. Do you wish to continue?</span><div class="alme--window--timeout--warning__button__wrap"><button class="alme--window--timeout--warning__yes__button">Yes</button><button class="alme--window--timeout--warning__no__button">No</button></div></div></div></div><div class="alme--window--survey__wrap" style="display: none;"></div><div id="alme-tts" class="alme--window--tts" style="display: none;"><audio class="alme--window--tts__control" id="alme-audio" autoplay="autoplay" controls="controls"></audio><div class="alme--window--tts__close" id="alme-close-sound-control"></div></div></div></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

@@ -1,0 +1,1245 @@
+/*
+  Developed by: IT WORKS! Inc.
+  Website: http://www.itworksdc.com/
+  Copyright 2013 by IT WORKS! Inc.
+
+  Date last modified: $Date$
+*/
+body
+{
+	width:100%;
+	margin-left:0px;
+	margin-right:0px;
+    margin-top: 0px;
+    width: 100%;
+}
+
+#map_canvas div, span, a, label {
+ font-family:'Lato', sans-serif !important;
+}
+
+div.cartodb-logo{
+	display:none!important;
+}
+
+#cartodb-gmaps-attribution{
+	display:none!important;
+}
+.infowindow_wrapper {
+	position: absolute;
+	width: 400px;
+	top: 40px;
+	font-family: 'Lato', sans-serif !important;
+	z-index: 10;
+	cursor: default;
+	top: -9999px;
+	left: -9999px;
+}
+
+#iwsSearchInfowindow.infowindow_wrapper {
+	top: 55px;
+	left: 100px;
+}
+
+.if_header_left, 
+.if_header_left_content,
+.if_header_left_content_station,
+.if_header_left_content_train,
+.if_header_left_content_search_results,
+.if_header_left_spacer, 
+.if_header_crossover, 
+.if_header_right_content, 
+.if_header_right_content_station,
+.if_header_right_content_train,
+.if_header_right_content_search_results,
+.if_header_right {
+	float: left;
+}
+
+.if_header_left {
+	position: relative;
+	top: 10px;
+}
+
+.if_header_left_corner {
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/WIN_Lcorner.png');
+	width: 9px;
+	height: 8px;
+}
+
+.if_header_left_mid_spacer {
+	position: relative;
+	background: #333333;
+	border-left: 1px solid #999;
+	border-bottom: 1px solid #999;
+	width: 8px;
+	height: 20px;
+	left: 1px;
+}
+
+.if_header_left_content, 
+.if_header_left_content_train,
+.if_header_left_content_station,
+.if_header_left_content_search_results
+{
+	position: relative;
+	top: 10px;
+	float: left;
+	color: white;
+	z-index: 2;
+	font-weight: bold !important;
+	background: #333333;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+	height: 21px;
+	padding-top: 6px;
+}
+
+.if_header_left_content_station {
+	width: 187px;
+}
+
+.if_header_left_content,
+.if_header_left_content_train,
+.if_header_left_content_search_results
+{
+	width: 167px;
+	white-space:nowrap;
+}
+
+html.ie8 .if_header_left_content,
+html.ie8 .if_header_left_content_train
+{
+	letter-spacing:-1px !important;
+}
+
+.if_header_left_content_station,
+.if_header_left_content_train,
+.if_header_left_content_search_results {
+	font-size: 11px !important;
+}
+
+/* Convert to dynamically loaded class */
+.if_header_crossover {
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/WIN_centerSplit.png');
+	width: 40px;
+	height: 39px;
+}
+
+.if_header_right_content, 
+.if_header_right_content_train,
+.if_header_right_content_station, 
+.if_header_right_content_search_results {
+	background-color: #ffffff;
+	border-top: 1px solid #999;	
+}
+
+.if_header_right_content, 
+.if_header_right_content_train, 
+.if_header_right_content_search_results {
+	width: 115px;
+}
+
+.if_header_right_content_station {
+	width: 95px;
+}
+
+.if_header_right_content, 
+.if_header_right_content_station,
+.if_header_right_content_search_results {
+	height: 32px;
+	padding-top: 10px;
+}
+
+.if_header_right_content_train {
+	height: 36px;
+	padding-top: 6px;
+}
+
+.if_header_right_content,
+.if_header_right_content_train {
+	color: black !important;
+	font-size: 11px !important;
+}
+
+.if_header_right_content_search_results {
+	font-size: 11px;
+}
+
+.if_header_right_content_station {
+	color: #328ACC !important;
+	font-size: 22px !important;
+	font-weight: 900 !important;
+	padding-top: 3px;
+	padding-bottom: 7px;
+}
+
+/*
+.if_header_right {
+	background-color: white;
+}
+*/
+
+.if_station_info {
+	width: 130px;
+	overflow: auto;
+	height: 38px;
+	position: relative;
+	left: -8px;
+	top: 2px;
+}
+
+.if_station_code {
+	position: relative;
+	top: 2px;
+	float: left;
+	margin-right: 5px;	
+
+    color: #328ACC !important;
+    font-size: 22px !important;
+    font-weight: 900 !important;
+
+
+}
+
+.if_station_icon,
+.if_station_icon_platform,
+.if_station_icon_shelter,
+.if_station_icon_station {
+	float: left;
+	position: relative;
+	width: 33px;
+	height: 26px;
+}
+
+.if_header_right_corner {
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/WIN_RTcorner2.png');
+	width: 19px;
+	height: 8px;
+}
+
+.if_header_right_mid_spacer {
+	position: relative;
+	background: #ffffff;
+	border-right: 1px solid #999;
+	width: 18px;
+	height: 32px;
+	right: 0px;
+}
+
+.if_header_close_icon {
+	position: absolute;
+	left: 333px;
+	top: 3px;
+	width: 14px;
+	height: 14px;
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/AW_closeUp.png');
+	z-index: 4;
+	cursor: pointer;
+}
+
+.if_header_close_icon_hover {
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/AW_closeOver.png');
+}
+
+.if_mid_left,
+.if_mid_content,
+.if_mid_right {
+	float: left;
+}
+
+.if_mid {
+	clear: both;
+	position: relative;
+	top: -4px;
+	left: 1px;
+	border-left: 1px solid #999;
+	background-color: #ffffff;
+	border-right: 1px solid #999;
+	padding-top: 3px;
+	width: 347px;
+}
+ 
+.if_mid_dotted {
+	height: 1px;
+	margin-left: 3px;
+	margin-right: 10px;
+	background-color: #ffffff;
+	background-repeat: repeat-x;
+	background-position: center top;
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/dotted_top.png');
+}
+
+.if_mid_content, 
+.if_mid_content_station, 
+.if_mid_content_train,
+.if_mid_content_search_results 
+{
+	width: 339px;
+	height: auto;	
+	margin-left: 8px;
+	margin-right: 10px;
+}
+
+.if_mid_content,
+.if_mid_content_train,
+.if_mid_content_search_results {
+	
+	padding-top: 5px;
+}
+
+.if_mid_content_train,
+.if_mid_content_search_results {
+	padding-bottom: 1px;
+}
+
+.if_mid_content_station {
+	background-color: #ffffff;
+	font-size: 14px !important;
+	padding-bottom: 0px;
+}
+
+.if_mid_content_station_line {
+	background-color: #ffffff;
+	padding-top: 5px;
+	padding-bottom: 6px;
+	color: #333333;
+}
+
+.if_right_arrow {
+	float: left;
+	margin-left: 4px;
+	margin-top: 4px;
+}
+
+.if_mid_content {
+	color: #328ACC !important;
+	font-size: 11px !important;
+}
+
+.if_train_info_mid_o {
+	float: left;
+}
+
+.if_train_info_mid_vspacer {
+	height: 9px;
+}
+
+.if_train_info_mid_hspacer {
+	width: 143px;
+}
+
+div#iwsIW_mid_content {
+	overflow: auto;
+}
+
+div#iwsIW_mid_content div.if_train_info_mid {
+	position: relative;
+	color: black !important;
+	font-size: 11px !important;
+	/* width: 50%; */
+	background-color: #fff;
+}
+
+.if_train_info_comment {
+	padding-right: 29px;
+}
+
+div#iwsIW_mid_content div.if_train_info_eta {
+	position: relative;
+	color: black !important;
+	font-size: 11px !important;
+	width: 50%;
+	background-color: #fff;
+	float: right;
+	/* border-left: 1px solid #328ACC;*/	
+	/* padding-left: 10px; */
+	padding-right: 10px;
+} 
+
+div#iwsIW_mid_content div.if_train_info_eta span,
+div#iwsIW_mid_content div.if_train_info_eta div
+ {
+	font-size: 11px !important;
+}
+
+/*
+div#iwsIW_mid_content .if_train_info_mid {
+	color: black !important;
+	font-size: 14px !important;
+}
+*/
+
+.if_mid_content_station {
+	color: black !important;
+	font-size: 11px !important;
+}
+
+.if_mid_content_station span {
+	font-weight: bold !important;
+	font-size: 11px !important;
+}
+
+.if_train_info_mid_mdt_orig {
+	margin-right: 29px;
+}
+
+.if_extra_content,
+.if_extra_content_station,
+.if_extra_content_train,
+.if_extra_content_search_results
+ {
+	clear: both;
+	position: relative;
+	top: -4px;
+	left: 1px;
+	padding-top: 4px;
+	background-color: white;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	width: 347px;
+	overflow: auto;
+}
+
+.if_extra_content_train {
+	font-size: 11px;
+}
+
+.if_extra_content_train_topborder {
+	height: 4px;
+	background-color: #efefef;
+	margin-left: -10px;
+	margin-right: -10px;
+	margin-bottom: 5px;
+}
+
+.if_train_extra_content {
+	padding-left: 10px;
+	padding-right: 10px;
+	overflow: auto;
+}
+
+.if_train_extra_content_lastts {
+	position: relative;
+	top: 2px;
+	padding-right: 19px;
+}
+
+.if_extra_content_search_results {
+	font-size: 11px;
+}
+
+.if_extra_content_overflow {
+	border-top: 5px solid #eee;
+	overflow-y: auto;
+	padding-top: 4px;
+	font-size: 11px !important;
+	height: 22px;
+}
+
+.if_train_extra_status {
+	clear: both; 
+	font-size: 9pt; 
+	margin-top: 7px;
+	padding-top: 8px;
+	margin-left: 9px;
+	margin-right: 1px;
+	height: 130px; 
+	overflow-y: scroll;
+}
+
+.if_train_extra_status_row {
+	overflow: auto;
+	margin-top: 0px;
+	padding-bottom:2px;
+}
+
+.if_train_extra_status_station {
+	clear: left;
+	width: 58%;
+	float:left;
+}
+
+.if_train_extra_status_label {
+	clear: left; 
+	margin-left: 5px;
+	width: 120px;
+	line-height:13px;
+}
+
+.if_train_extra_status_times {
+	text-align: right;
+	width: 73px;
+}
+
+.if_train_extra_status_comment {
+	margin-right: 10px;
+}
+
+#expand_status_button {
+	cursor: pointer;
+}
+
+div[class^='if_train_extra_status_ts_'], div[class*=' if_train_extra_status_ts_'] {
+	float: right;
+	position: relative;
+	top: 4px;
+	margin-left: 5px;
+}
+
+.if_bottom {
+	clear: both;
+	position: relative;
+	height: 21px;
+	top: -4px;
+	left: 1px;
+}
+
+.if_bottom_left_corner,
+.if_bottom_mid,
+.if_bottom_right_corner {
+	float: left;
+}
+
+.if_bottom_left_corner {
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/WIN_LbottomCorner.png');
+	height: 11px;
+	width: 8px;
+}
+
+.if_bottom_mid {
+	width: 334px;
+	height: 10px;
+	border-bottom: 1px solid #999;
+	background-color: white;
+}
+
+.if_bottom_right_corner {
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/WIN_RTbottomCorner.png');
+	height: 11px;
+	width: 8px;
+}
+
+.if_pointer {
+	position: relative;
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/WIN_pointer.png');
+	width: 19px;
+	height: 23px;
+	top: -15px;
+	left: 164px;
+}
+
+/* cw: We won't be using rotate. Will need to rotate image. */
+.if_top_pointer {
+	position: absolute;
+	background-image: url('//maps.amtrak.com/rttl/img/infowindow/WIN_toppointer.png');
+	width: 19px;
+	height: 23px;
+	/*transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);*/
+	top: -22px;
+	left: 300px;
+}
+
+.if_train_info {
+	position: relative;
+	top: -5px;
+}
+
+.if_train_info div {
+	float: left;
+}
+
+div[class^='if_train_direction_'], div[class*=' if_train_direction_'] {
+	margin-left: 6px;
+	margin-top: 0px;
+}
+
+div[class^='if_train_status_'], div[class*=' if_train_status_'] {
+	margin-left: 12px;
+	margin-top: 4px;
+}
+
+.if_train_speed {
+	
+}
+
+.if_train_mph_val {
+	clear: both;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	width: 30px;
+	font-size: 20px !important;
+	font-weight: 900 !important;
+	color: #328ACC !important;
+}
+
+.if_train_mph_label {
+	clear: both;
+	font-size: 10px !important;
+	margin-top: -4px;	
+	margin-left: 2px;
+}
+
+.if_search_results_flag {
+	position: relative;
+	top: -15px;
+}
+
+.if_train_search_results {
+	overflow-y: auto;
+	height: 70px;
+	margin-left: 8px;
+}
+
+.if_train_search_result {
+	overflow: auto;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+.if_train_search_result div img {
+	position: relative;
+	/* top: -2px; */
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.search_arrdep {
+	width: 110px;
+	margin-left: 5px;
+}
+
+.text_blue {
+	color: #328ACC !important;	
+}
+
+.text_black {
+	color: black !important;
+}
+
+.text_grey {
+	color: #999999; 
+}
+
+.underlined {
+	text-decoration: underline;
+}
+
+.normal { 
+	text-decoration: none;
+}
+
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+.hoverwindow_wrapper {
+	position: relative;
+	top: -9999px;
+	left: -9999px;
+	color: white;
+}
+
+.hoverwindow_text {
+        text-align: center;
+	position: relative;
+	top: 2px;
+}
+
+html.ie8 .hoverwindow_text {
+	letter-spacing: -1px;
+}
+
+#iwsHW_text {
+	font-family: 'Lato', sans-serif !important;
+	font-weight: bold !important;
+	font-size: 11px !important;
+}
+
+.clear {
+	clear: both;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.ultrabold {
+	font-weight: 900 !important;
+}
+
+.bold {
+	font-weight: bold !important;
+}
+
+.clusterHoverDiv {
+	/* VV: changed position from relative (bug #3500 - in Firefox 30, when screen is smaller than map -> "Cluster hover is positioned below numbered circle") 
+    */
+    position: absolute;
+    color: white;
+	font-family: 'Lato', sans-serif !important;
+}
+
+.clusterHoverDiv_text {
+    text-align: center;
+	position: relative;
+	top: 2px;
+	font-weight: bold !important; 
+	font-size: 11px !important;
+	
+}
+
+html.ie8 .clusterHoverDiv_text {
+	letter-spacing: -1px;
+}
+
+.googft-info-window
+{
+   font-family: arial !important;
+}
+
+.info_title
+{
+	color: orange;		 
+    font-weight: bold;
+}
+
+.heading_icon
+{
+background-image: url("//maps.amtrak.com/rttl/img/icon-status-on-time.png");
+}
+
+.status_icon
+{
+background-image: url("//maps.amtrak.com/rttl/img/icon-status-on-time.png");
+}
+
+.next_station_header
+{
+ color: darkblue;	   
+font-weight: bold;
+}
+
+.eta
+{
+font-family: arial;
+font-size: 12px;
+font-weight: bold;
+}
+.disruption
+{
+margin-left: 5px;
+margin-right: 5px;
+}
+
+#search {
+	background-position: bottom; 
+	background-color: #333333; 
+	background-image: url('//maps.amtrak.com/rttl/img/WIN_TopLine.png'); 
+	background-repeat:repeat-x;
+	/*overflow: auto;*/
+	width: 100%;
+	height: 41px;
+	/*border-left: 1px solid #a9a9a9;
+	border-right: 1px solid #a9a9a9;
+	border-top: 1px solid #a9a9a9;*/
+}
+
+#search div {
+	float: left;
+	margin-top:6px;
+}
+
+#search_field_wrapper {
+	overflow: auto;
+}
+
+#search_logo {
+	background-position: center bottom; 
+	background-image: url('//maps.amtrak.com/rttl/img/WIN_TopTrackerLogo.png'); 
+	background-repeat: no-repeat;  
+	height: 54px; 
+	z-index:4; 
+	top: -15px; 
+	left: 10px; 
+	width: 60px; 
+	position: absolute;
+	cursor: pointer;
+}
+
+#search_text {
+	background-position: center; 
+	background-image: url('//maps.amtrak.com/rttl/img/WIN_TopTrackerTxt.png'); 
+	background-repeat: no-repeat;
+	width: 118px;
+	height: 28px;
+	margin-left: 68px;
+	margin-top:6px;
+}
+
+div#search_field_wrapper #search_field {
+	float: left;
+	width: 380px;
+	font-size: 13px;
+	height: 12px;
+	margin-top: 4px;
+	font-family: 'Lato', sans-serif !important; 
+	position: relative;
+	top: 0px;
+	color: #333333;
+}
+
+div#search_field_wrapper a {
+	float: left;
+	display: block;
+	background-image: url('//maps.amtrak.com/rttl/img/WIN_Go.png');
+	background-repeat: no-repeat; 
+	background-position: left top; 
+	border: none;
+	cursor: pointer;
+	width: 38px;
+	height: 29px;
+	margin-left: 6px;
+	/* margin-top: 4px; */
+	position: relative;
+	top: -2px;
+}
+
+div#search_field_wrapper a:hover {
+	background-position: left bottom; 
+}
+
+/*
+div#search_button_wrapper a:hover {
+	background-image: url('//maps.amtrak.com/rttl/img/WIN_GoOver.png'); 
+}
+*/
+
+/*
+#search_button {	
+	background-color: #000000;
+	border: none;
+	cursor: pointer;
+	width: 38px;
+	height: 29px;
+	margin-left: 6px;
+	margin-top: 4px;
+	position: relative;
+	top: -2px;
+}
+*/
+
+.if_search_no_results {
+	font-size: 11px !important;
+}
+
+#map_canvas {
+	float: left;
+	width: 100%;
+	height: 95%;
+	position:absolute;
+	border-left: 0px solid #a9a9a9;
+	border-right: 0px solid #a9a9a9;
+	border-bottom: 0px solid #a9a9a9;
+}
+
+#coordinates {
+	margin: 10px;
+	float: left;
+	width: 120px;
+}
+
+#slider_container {
+	height: 30px;
+	width: 200px;
+}
+
+#timeout {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333333;
+    opacity: 0.85;
+	filter: alpha(opacity=85);
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+	text-align: center;
+    vertical-align: middle;
+    overflow: auto;
+}
+
+#timeout_content {
+	position: absolute;
+	/*
+	font-family: 'Lato', sans-serif;
+	color: white;
+    text-shadow:
+    	-1px -1px 0 black,
+    	1px -1px 0 black,
+    	-1px 1px 0 black,
+    	1px 1px 0 black;
+    font-size: 26px;
+    font-weight: bold;
+    */
+    z-index: 11;	
+	top: 50%;
+	left:50%;
+
+}
+.timeout_content_text
+{
+font-size:9pt; 
+	font-family: 'Lato',sans-serif !important;
+	margin-left: 10px; 
+	margin-top: 40px;
+}
+
+#unavailable {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333333;
+    opacity: 0.85;
+	filter: alpha(opacity=85);
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+	text-align: center;
+    vertical-align: middle;
+    overflow: auto;
+}
+
+#unavailable_content {
+	position: absolute;
+	background-image:url('//maps.amtrak.com/rttl/img/WIN_MessageUnavailable.png');
+    z-index: 900;
+	height: 92px;
+	width: 242px;
+	top: 50%;
+	left:50%;
+}
+.unavailable_content_text
+{
+	font-size:9pt; 
+	font-family: 'Lato',sans-serif !important;
+	margin-left: 7px; 
+	margin-top: 40px;
+}
+
+
+.map_reset_button {
+    /* VV - 7/1/2014 - modified to position the reset button after zoom control after removing pan control */
+	position: absolute;
+    left: 15px !important;
+    top: 15px !important;
+    /*
+    position: relative;
+	left: 21;
+    */
+	cursor: pointer;
+}
+
+
+#compatmode {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333333;
+    opacity: 0.85;
+	filter: alpha(opacity=85);
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+	text-align: center;
+    vertical-align: middle;
+    overflow: auto;
+}
+
+#compatmode_content {
+	position: absolute;
+	background-image:url('//maps.amtrak.com/rttl/img/WIN_MessageUnavailable.png');
+    z-index: 900;
+	height: 92px;
+	width: 242px;
+}
+.compatmode_content_text
+{
+	font-size:8pt; 
+	font-family: 'Lato',sans-serif !important;
+	margin-left: 7px; 
+	margin-top: 40px;
+}
+/*
+html.ie7 #timeout .timeout_content,
+html.ie8 #timeout .timeout_content,
+html.ie9 #timeout .timeout_content {
+    background-color: black;
+    filter: progid:DXImageTransform.Microsoft.Chroma(color='black') progid:DXImageTransform.Microsoft.Alpha(opacity=100) progid:DXImageTransform.Microsoft.dropshadow(color=#000000,offX=1,offY=1) progid:DXImageTransform.Microsoft.dropshadow(color=#000000,offX=-1,offY=1) progid:DXImageTransform.Microsoft.dropshadow(color=#000000,offX=1,offY=-1) progid:DXImageTransform.Microsoft.dropshadow(color=#000000,offX=-1,offY=-1);
+    zoom: 1;
+}
+
+#timeout .timeout_content .timeout_header {
+	font-size: 42px;
+}
+
+#timeout button {
+	font-size: 20px;
+	font-weight: bold;
+	color: #333333;
+}
+*/
+
+/* VV - 7/1/2014 - added to position zoom control below the reset button after removing pan control */
+div.gm-style div.gmnoprint div.gmnoprint {
+    position: relative !important;
+    /*left: 20px !important;
+    top: 60px !important;*/
+}
+
+div.if_station_extra_content_status_plus_arr {
+    background-image: url("//maps.amtrak.com/rttl/img/STA_ArrivalsPlus.png");
+    height: 17px;
+    width: 102px;
+}
+div.if_station_extra_content_status_plus_dep {
+    background-image: url("//maps.amtrak.com/rttl/img/STA_DeparturesPlus.png");
+    height: 17px;
+    width: 119px;
+}
+div.if_station_extra_content_status_minus_arr{
+  background-image: url("//maps.amtrak.com/rttl/img/STA_ArrivalsMinus.png");
+    height: 16px;
+    width: 102px;
+}
+div.if_station_extra_content_status_minus_dep{
+  background-image: url("//maps.amtrak.com/rttl/img/STA_DeparturesMinus.png");
+    height: 16px;
+    width: 119px;
+}
+/*TODO: Add the hover classes*/
+
+.if_station_extra_status {
+	clear: both; 
+	font-size: 9pt; 
+	/* margin-top: 10px; */
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 1px;
+	max-height: 130px; 
+	overflow-y: auto;
+	display:none;
+}
+
+.if_station_extra_status_row {
+	overflow: auto;
+	margin-top: 0px;
+	margin-right:10px;	
+	padding-bottom:2px;
+}
+
+.if_station_extra_status_station {
+	clear: none;
+    float: left;
+    width: 58%;
+}
+
+.if_station_extra_status_label {
+	clear: left;	
+	width: 102px;
+	padding-left:3px;
+}
+
+.if_station_extra_status_times {
+	text-align: right;
+	width: 71px;
+}
+.if_station_extra_status_comment {
+	/*margin-right: 10px;*/
+}
+.if_station_status_delay{
+	background-image: url("//maps.amtrak.com/rttl/img/status_flags/TR_SqStatus_delay.png");
+     height: 9px;
+    width: 9px;
+	float: right;
+    margin-left: 5px;
+    position: relative;   
+	background-repeat: no-repeat; 
+    top: 4px;
+    width: 9px;
+   
+}
+.if_station_status_ok{
+	background-image: url("//maps.amtrak.com/rttl/img/status_flags/TR_SqStatus_ok.png");
+    height: 9px;
+    width: 9px;
+	float: right;
+    margin-left: 5px;
+    position: relative;   
+	background-repeat: no-repeat; 
+    top: 4px;
+    width: 9px;
+}
+.if_station_status_cancel{
+	background-image: url("//maps.amtrak.com/rttl/img/status_flags/TR_SqStatus_cancel.png");
+    height: 9px;
+    width: 9px;
+	float: right;
+    margin-left: 5px;
+    position: relative;   
+	background-repeat: no-repeat; 
+    top: 4px;
+    width: 9px;
+
+}
+.if_station_status_none{
+	height: 9px;
+    width: 9px;
+	float: right;
+    margin-left: 5px;      
+	background-repeat: no-repeat; 
+    top: 4px;
+    width: 9px;
+}
+
+.centerdiv{
+	border-left: 1px solid;
+	margin-left: 60px;
+}
+#expand_status_button_arr{
+	cursor:pointer;
+}
+#expand_status_button_dep{
+	margin-right:11px;
+	cursor:pointer;
+}
+.imageleft{
+	display:none;
+	border-right: 1px solid black; 
+	border-top: 1px solid; 
+	margin-left: 23px;
+	width: 146px;
+	height:10px;
+}
+.imageright{
+	display:none;
+	margin-right: 23px;
+	width: 153px;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	height:10px;
+}
+.text_center{
+	text-align:center;
+}
+.pointer
+{
+	cursor:pointer;
+}
+.trainDate{	
+	text-align: right;
+	width:42%;
+	/*padding-bottom:7px;*/
+}
+.stationDate {
+     clear: none;
+    float: left;
+    text-align: right;
+    width: 39%;
+}
+/*Custom Styling for autocompleter to overwrite jquery*/
+.ui-menu-item {
+				text-decoration: none;
+				display: block;
+				padding-top:2px;
+				padding-bottom:2px;
+				padding-left:0px
+				padding-right:4em;
+				line-height: 1.5;
+				min-height: 0;
+				font-weight: normal;
+			}
+
+	.ui-widget-content {   
+			background-attachment: scroll;
+			background-clip: border-box;
+			background-color: #ffffff;   
+			background-origin: padding-box;
+			background-position-x: 50%;
+			background-position-y: 50%;
+			background-repeat: repeat-x;
+			background-size: auto auto;
+			border-color: #aaaaaa!important;
+			border-bottom-style: solid;
+			border-bottom-width: 1px;
+			border-image-outset: 0 0 0 0;
+			border-image-repeat: stretch stretch;
+			border-image-slice: 100% 100% 100% 100%;
+			border-image-source: none;
+			border-image-width: 1 1 1 1;
+			border-left-color: #aaaaaa;
+			border-left-style: solid;
+			border-left-width: 1px;
+			border-right-color: #aaaaaa;
+			border-right-style: solid;
+			border-right-width: 1px;
+			border-top-color: #aaaaaa;
+			border-top-style: solid;
+			border-top-width: 1px;
+			color: #222222;
+			border-radius:4px;
+		}
+
+.ui-menu {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    outline-color: currentcolor;
+    outline-style: none;
+    outline-width: medium;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-top: 2px;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration: none;
+display: block;
+padding: 1px .4em;
+line-height: 1.5;
+min-height: 0;
+font-weight: normal;
+
+}
+.ui-menu .ui-menu-item a.ui-state-focus,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+	border: 1px solid #999999;
+	background: #dadada url('//maps.amtrak.com/rttl/img/ui_autocompleter.png') 50% 50% repeat-x;
+	font-weight: normal;
+	color: #212121;
+	border-radius:4px;
+}
+.ui-menu-item-wrapper-hr {	
+	padding: 0!important;
+	
+}
+.gm-style-mtc {
+    width: initial !important;
+
+}
+.gm-style-mtc > div {
+    font-size: 14px !important;
+    padding: 8px 22px 8px 8px !important;
+}
