@@ -16,7 +16,7 @@ var _$_sal_5 = 'https://maps.amtrak.com/services/MapDataService/stations/trainSt
 
 
 var trainOrdinalMarkerIcons = {};
-var _$$_666 = {
+var configData = {
     // Maximum idle time, in seconds.
     session_timeout: 1200,
     // Train layer refresh interval, in seconds.
@@ -169,21 +169,21 @@ var _$$_666 = {
 
 function finalizeConfiguration() {
 	// Determine browser.
-    _$$_666.isIE8 = ($("html").hasClass("ie8"));
+    configData.isIE8 = ($("html").hasClass("ie8"));
 
     // Post configuration settings.
-    _$$_666.map_options.center = _$$_666.map_center;
-    _$$_666.map_options.mapTypeId = _$$_666.map_type_id;
-    _$$_666.map_options.mapTypeControlOptions.mapTypeIds = [google.maps.MapTypeId.SATELLITE, _$$_666.map_type_id];
+    configData.map_options.center = configData.map_center;
+    configData.map_options.mapTypeId = configData.map_type_id;
+    configData.map_options.mapTypeControlOptions.mapTypeIds = [google.maps.MapTypeId.SATELLITE, configData.map_type_id];
 
     // Add in train status fields.
-    for (var i = 1; i <= _$$_666.max_stations; i++) {
-        _$$_666.extra_fields.push('Station' + i);
+    for (var i = 1; i <= configData.max_stations; i++) {
+        configData.extra_fields.push('Station' + i);
     }
-    _$$_666.extra_fields.push('StationMsg');
+    configData.extra_fields.push('StationMsg');
 
     // Clustering images.
-    _$$_666.images.push(
+    configData.images.push(
             ["cluster-hover"],
             ["STA_icon"],
             ["CL_HVR_Up", {offsetX: 79, offsetY: 40}],
@@ -211,7 +211,7 @@ function finalizeConfiguration() {
 
             // Minus/Plus "buttons"
             $.each(["Minus", "Plus"], function(i, s) {
-				_$$_666.images.push(
+				configData.images.push(
                         ["TR_NAME_Active" + s + "_Up", "if_train_search_results_" + s.toLowerCase()],
                         ["TR_Status" + s + "_Up", "if_train_extra_content_status_" + s.toLowerCase()],
                         ["TR_NAME_Active" + s + "_Over", "if_train_search_results_" + s.toLowerCase() + "_hover"],
@@ -224,9 +224,9 @@ function finalizeConfiguration() {
             });
 
             // Go Buttons
-            _$$_666.images.push(["WIN_GoUp", function(t, s) {
+            configData.images.push(["WIN_GoUp", function(t, s) {
                     var newStyleElem = "#search_button { width: " + t.width + "px; height: " + t.height + "px; }"
-                    if (_$$_666.isIE8) {
+                    if (configData.isIE8) {
                         return newStyleElem;
                     } else {
                         $(s).append(newStyleElem);
@@ -234,8 +234,8 @@ function finalizeConfiguration() {
                 }]);
 
             // Main clustering image.
-            _$$_666.images.push(["cluster-bg", function(t) {
-                    _$$_666.clustering_options.styles = [
+            configData.images.push(["cluster-bg", function(t) {
+                    configData.clustering_options.styles = [
                         {
                             textColor: "white",
                             width: t.width,
@@ -247,16 +247,16 @@ function finalizeConfiguration() {
 
             // Status images.
             $.each(["ok", "cancel", "delay", "predeparture"], function(i, s) {
-                _$$_666.images.push(["status_flags/TR_Flag_" + s, "if_train_status_" + s]);
-                _$$_666.images.push(["status_flags/TR_SqStatus_" + s, "if_train_extra_status_ts_" + s]);
-                _$$_666.images.push(["hovers/TR_HVR_" + s, "hoverwindow_train_" + s]);
-                _$$_666.images.push(["hovers/TR_HVR_short_" + s, "hoverwindow_train_short_" + s]);
+                configData.images.push(["status_flags/TR_Flag_" + s, "if_train_status_" + s]);
+                configData.images.push(["status_flags/TR_SqStatus_" + s, "if_train_extra_status_ts_" + s]);
+                configData.images.push(["hovers/TR_HVR_" + s, "hoverwindow_train_" + s]);
+                configData.images.push(["hovers/TR_HVR_short_" + s, "hoverwindow_train_short_" + s]);
             });
 
             // Directional images.
             $.each(["x", "n", "ne", "e", "se", "s", "sw", "w", "nw"], function(i, o) {
-                _$$_666.images.push(["directions/TR_Direction_" + o.toUpperCase(), "if_train_direction_" + o]);
-                _$$_666.images.push(["TR_icon_" + o, function(t) {
+                configData.images.push(["directions/TR_Direction_" + o.toUpperCase(), "if_train_direction_" + o]);
+                configData.images.push(["TR_icon_" + o, function(t) {
                         // Note use of function to preserve scope of [o].
                         (function(ord) {
                             trainOrdinalMarkerIcons[ord] = {

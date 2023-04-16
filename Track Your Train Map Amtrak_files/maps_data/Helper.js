@@ -1,18 +1,24 @@
 /*CryptoJS-Security - the salt and IV values here are fake to throw someone off. All variable names are changed*/
-var __$_s1 = {
-  _$_s: "amtrak",
-  _$_i: "map",
-  _$_dcrt: function (_, $) {
-    return _$_cjs._$_sea
-      ._$_dcr(
-        _$_cjs.lib._$_cpar.create({ _$_ctxt: _$_cjs.enc.Base64.parse(_) }),
-        this._$_gk($),
-        { iv: _$_cjs.enc.Hex.parse(this._$_i) }
+// var __$_s1 = {
+var securityHelper = {
+  // was _$_s
+  // dowster: currently evaluates to "9a3686ac"
+  salt: "amtrak",
+  // was _$_i
+  // dowster: currently evaluates to "c6eb2f7f5c4740c1a2f708fefd947d39"
+  iv: "map",
+  // decrypt was '_$_dcrt'
+  decrypt: function (data, keyIdMaybe) {
+    return cryptoJS.aes
+      .decrypt(
+        cryptoJS.lib.maybeParse.create({ cipherText: cryptoJS.enc.Base64.parse(data) }),
+        this.getKey(keyIdMaybe),
+        { iv: cryptoJS.enc.Hex.parse(this.iv) }
       )
-      .toString(_$_cjs.enc.Utf8);
+      .toString(cryptoJS.enc.Utf8);
   },
-  _$_gk: function (_) {
-    return _$_cjs._$_pdf2(_, _$_cjs.enc.Hex.parse(this._$_s), {
+  getKey: function (keyId) {
+    return cryptoJS.passwordDerivationFunction(keyId, cryptoJS.enc.Hex.parse(this.salt), {
       keySize: 4,
       iterations: 1e3,
     });

@@ -12,7 +12,7 @@ Date.now = Date.now || function() {
 
 // Helper functions that need to be loaded before other JS files.
 function log(l) {
-    if (typeof console != "undefined" && _$$_666.debug) {
+    if (typeof console != "undefined" && configData.debug) {
         console.log(l);
     }
 }

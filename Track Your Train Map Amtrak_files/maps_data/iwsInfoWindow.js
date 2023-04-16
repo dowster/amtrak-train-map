@@ -374,7 +374,7 @@ $.extend(iwsInfoWindow.prototype, {
              $(textDiv).css("top", deltaTop + "px");
              }
              */
-        }, ((!_$$_666.isIE8) ? 25 : 0));
+        }, ((!configData.isIE8) ? 25 : 0));
     },
     // Creates the DIV representing this InfoBox
     _createInfoElement: function() {
