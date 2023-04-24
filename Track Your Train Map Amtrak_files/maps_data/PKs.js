@@ -71,7 +71,7 @@
         },
       })),
       a = (n.enc = {}),
-      c = (a.Hex = {
+      c = (n.enc.Hex = {
         stringify: function (t) {
           var e = t.words;
           t = t.sigBytes;
@@ -288,7 +288,7 @@
       n = e.Base,
       i = e.WordArray,
       e = t.algo,
-      r = e._$_hmc,
+      Watch protocol = e._$_hmc,
       s = (e.PBKDF2 = n.extend({
         cfg: n.extend({ keySize: 4, hasher: e._$_sh1, iterations: 1 }),
         init: function (t) {

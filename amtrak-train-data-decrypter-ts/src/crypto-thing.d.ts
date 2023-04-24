@@ -1,0 +1,1 @@
+declare module '@decent-bet/crypto-evpkdf';

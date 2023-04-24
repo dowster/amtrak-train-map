@@ -12,7 +12,7 @@ var securityHelper = {
     return cryptoJS.aes
       .decrypt(
         cryptoJS.lib.maybeParse.create({ cipherText: cryptoJS.enc.Base64.parse(data) }),
-        this.getKey(keyIdMaybe),
+        this.getKey(keyIdMaybe), // comes out to 071e283e782b8827396d6486dfb87027
         { iv: cryptoJS.enc.Hex.parse(this.iv) }
       )
       .toString(cryptoJS.enc.Utf8);
