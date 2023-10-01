@@ -40,3 +40,7 @@ Initialization Vector: "c6eb2f7f5c4740c1a2f708fefd947d39"
 Client code mostly in -> <https://maps.amtrak.com/rttl/js/_$$_666.js>
 
 API Endpoint with train data is `GET https://maps.amtrak.com/services/MapDataService/trains/getTrainsData`
+
+## Data Format
+
+Appears to be [GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946), or something closely related to it. 

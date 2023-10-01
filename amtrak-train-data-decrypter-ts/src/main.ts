@@ -22,33 +22,33 @@ async function main() {
   const dir = await opendir(encryptedDir);
 
   for await (const file of dir) {
-  try {
-    //const response = await (await fetch(TRAIN_DATA_URL)).text();
-  const response = await (await readFile(resolve(encryptedDir,file.name))).toString();
-  const trainDataEncrypted = response.slice(0, -SECRET_KEY_STRING_LENGTH)
-  const secretKeyEncrypted = response.slice(-SECRET_KEY_STRING_LENGTH);
+    try {
+      //const response = await (await fetch(TRAIN_DATA_URL)).text();
+      const response = await (await readFile(resolve(encryptedDir, file.name))).toString();
+      const trainDataEncrypted = response.slice(0, -SECRET_KEY_STRING_LENGTH)
+      const secretKeyEncrypted = response.slice(-SECRET_KEY_STRING_LENGTH);
 
 
-  const privateKeyDecipher = crypto.createDecipheriv('aes-128-cbc', derivedPublicKey, ivBuffer);
+      const privateKeyDecipher = crypto.createDecipheriv('aes-128-cbc', derivedPublicKey, ivBuffer);
 
-  // TODO: streams would be cleaner here, maybe
-  let secretKeyDecrypted = privateKeyDecipher.update(secretKeyEncrypted, 'base64', 'utf8');
-  secretKeyDecrypted += privateKeyDecipher.final('utf8');
-  // console.log(secretKeyEncrypted);
-  // console.log(secretKeyDecrypted);
+      // TODO: streams would be cleaner here, maybe
+      let secretKeyDecrypted = privateKeyDecipher.update(secretKeyEncrypted, 'base64', 'utf8');
+      secretKeyDecrypted += privateKeyDecipher.final('utf8');
+      // console.log(secretKeyEncrypted);
+      // console.log(secretKeyDecrypted);
 
-  const derivedSecretKey = await promisify(crypto.pbkdf2)(secretKeyDecrypted.split('|')[0], Buffer.from(salt, 'hex'), 1e3, 16, 'sha1'); 
-  // console.log(`derivedSecretKey: ${derivedSecretKey.toString('hex')}`);
-  const dataDecipher = crypto.createDecipheriv('aes-128-cbc', derivedSecretKey, ivBuffer);
+      const derivedSecretKey = await promisify(crypto.pbkdf2)(secretKeyDecrypted.split('|')[0], Buffer.from(salt, 'hex'), 1e3, 16, 'sha1');
+      // console.log(`derivedSecretKey: ${derivedSecretKey.toString('hex')}`);
+      const dataDecipher = crypto.createDecipheriv('aes-128-cbc', derivedSecretKey, ivBuffer);
 
-  let dataDecrypted = dataDecipher.update(trainDataEncrypted, 'base64', 'utf-8');
-  dataDecrypted += dataDecipher.final('utf-8');
+      let dataDecrypted = dataDecipher.update(trainDataEncrypted, 'base64', 'utf-8');
+      dataDecrypted += dataDecipher.final('utf-8');
 
-  await writeFile(resolve(decryptedDir,file.name), JSON.stringify(JSON.parse(dataDecrypted), undefined, 2), 'utf-8');
-  console.log(`Completed file ${file.name}`);
-} catch (e) {
-  console.error(`Failed to decrypt file ${file.name}`, e);
-}
+      await writeFile(resolve(decryptedDir, file.name), JSON.stringify(JSON.parse(dataDecrypted), undefined, 2), 'utf-8');
+      console.log(`Completed file ${file.name}`);
+    } catch (e) {
+      console.error(`Failed to decrypt file ${file.name}`, e);
+    }
   }
 
 }
