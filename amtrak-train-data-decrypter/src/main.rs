@@ -48,6 +48,10 @@ fn get_private_key(encryption_data: &str) -> [u8; 36] {
     return result;
 }
 
+/**
+ * The data is split into two parts, the first part is the train data, and the
+ * last 88 bytes contains the encrypted form of the private key.
+ */
 fn get_data_parts(data: &str) -> (&str, &str) {
     data.split_at(data.len() - 88)
 }
@@ -92,6 +96,9 @@ fn decrypt_train_data(encoded_data: &str) -> TrainData {
     }
 }
 
+/** 
+ * Reads the encrypted data from stdin and prints the decrypted data to stdout.
+ */
 fn main() {
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
